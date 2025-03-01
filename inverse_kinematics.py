@@ -29,7 +29,7 @@ with mujoco.viewer.launch_passive(
         dX = position_des - position
         distance = np.linalg.norm(dX)
 
-        if distance < 0.001:
+        if distance < 0.02:
             print(f"Finished: {i}")
             print(f"Current position: {position}")
             print(f"Target position: {position_des}")
