@@ -1,30 +1,72 @@
 # mujoco-franka-demo
 
-## Python版本
+<p align="center">English | <a href="./README_cn.md">中文</a><br></p>
 
-### 安装依赖
+## Python Version
+
+### Dependencies
 
 ```bash
 pip install mujoco
 ```
 
-### 运行
+### Run
 
 ```bash
 python forward_kinematics.py
 python inverse_kinematics.py
 ```
 
-## C版本
-TODO
+## C++ Version
+
+### Dependencies
+
+1. Install MuJoCo https://github.com/google-deepmind/mujoco
+2. Install glfw 
+```bash
+sudo apt-get install libglew-dev
+```
+3. Install Eigen3
+```bash
+sudo apt-get install libeigen3-dev
+```
+
+### Compile
+
+```bash
+mkdir build && cd build
+cmake ..
+make
+```
+
+### Run
+
+```bash
+./forward_kinematics
+./inverse_kinematics
+```
+
+## Results
+
+### inverse_kinematics
+
+![inverse_kinematics](./gifs/inverse_kinematics.gif)
+
+### forward_kinematics
+
+![forward_kinematics](./gifs/forward_kinematics.gif)
+
+## TODO
+
+The C++ version uses a custom rendering implementation which takes longer to render than the Python version. Even when using `glfwSwapInterval(0)` to disable vertical sync, rendering still takes longer than in the Python version which uses `mujoco.viewer`. It would be worth investigating the rendering process of `mujoco.viewer` when possible.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 
-## 许可证
+### Third-party Components
 
-本项目采用MIT许可证。详情请见[LICENSE](./LICENSE)文件。
+This project includes the following third-party components licensed under the Apache License 2.0:
 
-### 第三方组件
-
-本项目包含以下使用Apache License 2.0许可的第三方组件：
-
-- **Franka Emika Panda模型** - 位于`model/franka_emika_panda/`目录下的模型文件采用Apache License 2.0许可。原始许可证文件保留在该目录中。
+- **Franka Emika Panda model** - The model files in the `model/franka_emika_panda/` directory are licensed under Apache License 2.0. The original license file is retained in that directory.
